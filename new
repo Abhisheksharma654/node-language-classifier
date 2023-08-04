@@ -1,0 +1,15 @@
+const selectSortItem = (itemData) => {
+  console.log("coming here", itemData[0]);
+  let sortValue = "";
+  const sortOption = sortOptionList[0].values.find(
+    (option) => option.label === itemData[0]
+  );
+  if (sortOption) {
+    sortValue = sortOption.value;
+    if (sortValue.startsWith("&") || sortValue.startsWith("?")) {
+      sortValue = sortValue.substring(1);
+    }
+  }
+  updateUrl(sortValue);
+  return sortValue;
+};
